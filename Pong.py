@@ -36,6 +36,7 @@ class user_bar():
         self.canvas = canvas
         self.racket_user = canvas.create_rectangle(self.PosX, self.PosY, self.PosX + 20, self.PosY + 100, fill='white')
 
+# Bar IA
 class ia_bar():
     def __init__(self):
         self.PosXStart = 15
@@ -59,6 +60,7 @@ class ia_bar():
         self.canvas = canvas
         self.racket_user = canvas.create_rectangle(self.PosX, self.PosY, self.PosX + 20, self.PosY + 100, fill='white')
 
+# IA ball
 class ia_ball():
     def __init__(self):
         self.PosXStart = 15
@@ -85,6 +87,12 @@ class ia_ball():
             else:
                 self.speed[0] *= -1.2
                 self.speed[1] *= -1.2
+
+    def get_pos_ball(self):
+        return [self.PosX, self.PosY]
+
+    def get_speed_ball(self):
+        return self.speed
 
     def check_ball_ia_contact(self, PosX, PosY):
         if (PosX <= self.PosY and self.PosY <= PosX + 100 
@@ -135,7 +143,10 @@ def game_loop():
     ia_ball.check_ball_user_contact(user_bar.get_pos_bar(), 15)
     ia_ball.check_ball_ia_contact(ia_bar.get_pos_bar(), 745)
 
+    IA_params.set_ball_pos(ia_ball.get_pos_ball())
+    IA_params.set_ball_speed(ia_ball.get_speed_ball())
     ia_ball.move_ball()
+
     gui.after(75, game_loop)
 
 gui.after_idle(game_loop)
