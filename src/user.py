@@ -18,7 +18,7 @@ class user():
 
     def up_ia_bar(self):
         global ia_bar_pos
-        if (ia_bar_pos >= heightScreen + 30):
+        if (ia_bar_pos >= 30):
             ia_bar_pos -= 30
 
     def down_ia_bar(self):

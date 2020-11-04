@@ -83,8 +83,9 @@ IA_prog = launch_ia()
 def game_loop():
     IA_prog.program_IA()
     new_ia_bar_pos = IA_params.get_ia_bar_pos()
+    print(new_ia_bar_pos)
     ia_bar.change_bar_pos(new_ia_bar_pos)
-    gui.after(10, game_loop)
+    gui.after(75, game_loop)
 
 gui.after_idle(game_loop)
 gui.mainloop()
