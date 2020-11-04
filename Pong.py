@@ -27,7 +27,7 @@ class user_bar():
         if Key == 'Up' and self.PosXStart >= 30:
             self.canvas.move(self.racket_user, 0, -30)
             self.PosXStart -= 30
-        if Key == 'Down' and self.PosXStart <= heightScreen - 130:
+        elif Key == 'Down' and self.PosXStart <= heightScreen - 130:
             self.canvas.move(self.racket_user, 0, 30)
             self.PosXStart += 30
 
@@ -42,6 +42,14 @@ class ia_bar():
         self.racket_user = None
         self.PosX = 745
         self.PosY = 10
+
+    def change_bar_pos(self, new_pos):
+        if self.PosXStart >= 30 and self.PosXStart > new_pos:
+            self.canvas.move(self.racket_user, 0, -30)
+            self.PosXStart -= 30
+        elif self.PosXStart <= heightScreen - 130 and self.PosXStart < new_pos:
+            self.canvas.move(self.racket_user, 0, 30)
+            self.PosXStart += 30
 
     def init_canvas(self, canvas):
         self.canvas = canvas
@@ -71,6 +79,12 @@ info.init_canvas(canvas)
 ia_bar = ia_bar()
 ia_bar.init_canvas(canvas)
 IA_prog = launch_ia()
-IA_prog.program_IA()
 
+def game_loop():
+    IA_prog.program_IA()
+    new_ia_bar_pos = IA_params.get_ia_bar_pos()
+    ia_bar.change_bar_pos(new_ia_bar_pos)
+    gui.after(10, game_loop)
+
+gui.after_idle(game_loop)
 gui.mainloop()

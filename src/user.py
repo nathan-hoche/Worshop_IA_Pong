@@ -1,6 +1,6 @@
 obj_ball = None
 heightScreen = 500
-ia_bar_pos = 0
+ia_bar_pos = 15
 
 class user():
     def __init__(self):
@@ -34,6 +34,6 @@ class program_init_user():
         global obj_ball
         obj_ball = ball
 
-    def change_ia_bar_pos(self, y):
+    def get_ia_bar_pos(self):
         global ia_bar_pos
-        ia_bar_pos = y
+        return ia_bar_pos

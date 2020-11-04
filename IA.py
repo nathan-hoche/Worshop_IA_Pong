@@ -2,9 +2,9 @@ from src.user import user
 
 class launch_ia():
     def __init__(self):
+        self.info = user()
         return
 
     def program_IA(self):
-        info = user()
-        info.up_ia_bar()
+        self.info.up_ia_bar()
         return
