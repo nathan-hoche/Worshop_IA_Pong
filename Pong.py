@@ -2,8 +2,11 @@ import os
 import tkinter as tk
 from tkinter import Canvas
 
+widthScreen = 800
+heightScreen = 500
+
 gui = tk.Tk()
-gui.geometry("800x500")
+gui.geometry(str(widthScreen) + "x" + str(heightScreen))
 gui.resizable(width=False, height=False)
 gui.title("Workshop Pong")
 gui['background'] = "#000000"
@@ -15,10 +18,6 @@ else:
 
 PosX = 60
 PosY = 10
-PosX2 = 200
-PosY2 = 480
-dx = 10
-dy = 7
 
 def update():
 
@@ -30,10 +29,10 @@ def update():
         if Key == 'Left':
             canvas.move(raquette,-30,0)
 
-    canvas = Canvas(gui,width = 500, height = 500 , bd=0, bg="grey")
-    canvas.pack(padx=10,pady=10)
+    canvas = Canvas(gui, width = widthScreen, height = heightScreen, bd = 0, bg = "grey")
+    canvas.pack(padx = 10, pady = 10)
 
-    raquette = canvas.create_rectangle(PosX2,PosY2,PosX2+100,PosY2+10,fill='black')
+    raquette = canvas.create_rectangle(PosX ,PosY ,PosX + 100,PosY + 20,fill='red')
 
 
     canvas.focus_set()
