@@ -16,23 +16,26 @@ if "nt" == os.name:
 else:
     gui.wm_iconbitmap(bitmap = "@image/logo.xbm")
 
-PosX = 60
+PosX = 15
 PosY = 10
 
-def update():
+class update():
+    self.PosXStart = 15
 
-    def KeyBoard(event):
+    def KeyBoard(self, event):
         Key = event.keysym
 
-        if Key == 'Right':
-            canvas.move(racket, 30, 0)
-        if Key == 'Left':
-            canvas.move(racket, -30, 0)
+        if Key == 'Up' and PosXStart >= 30:
+            canvas.move(racket, 0, -30)
+            PosXStart -= 30
+        if Key == 'Down' and PosXStart <= 470:
+            canvas.move(racket, 0, 30)
+            PosXStart += 30
 
     canvas = Canvas(gui, width = widthScreen, height = heightScreen, bd = 0, bg = "grey")
     canvas.pack(padx = 10, pady = 10)
 
-    racket = canvas.create_rectangle(PosX, PosY, PosX + 100, PosY + 20, fill='red')
+    racket = canvas.create_rectangle(PosX, PosY, PosX + 20, PosY + 125, fill='red')
 
 
     canvas.focus_set()
