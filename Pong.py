@@ -25,14 +25,14 @@ def update():
         Key = event.keysym
 
         if Key == 'Right':
-            canvas.move(raquette,30,0)
+            canvas.move(racket, 30, 0)
         if Key == 'Left':
-            canvas.move(raquette,-30,0)
+            canvas.move(racket, -30, 0)
 
     canvas = Canvas(gui, width = widthScreen, height = heightScreen, bd = 0, bg = "grey")
     canvas.pack(padx = 10, pady = 10)
 
-    raquette = canvas.create_rectangle(PosX ,PosY ,PosX + 100,PosY + 20,fill='red')
+    racket = canvas.create_rectangle(PosX, PosY, PosX + 100, PosY + 20, fill='red')
 
 
     canvas.focus_set()
