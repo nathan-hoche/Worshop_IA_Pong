@@ -1,4 +1,3 @@
-obj_ball = None
 heightScreen = 500
 ia_bar_pos = 15
 
@@ -7,10 +6,10 @@ class user():
         return
 
     def get_pos(self):
-        return obj_ball.get_ball_pos()
+        return
 
     def get_speed(self):
-        return obj_ball.get_ball_speed()
+        return
 
     def get_bar_pos(self):
         global ia_bar_pos
@@ -29,10 +28,6 @@ class user():
 class program_init_user():
     def __init__(self):
         return
-
-    def init_obj_ball(self, ball):
-        global obj_ball
-        obj_ball = ball
 
     def get_ia_bar_pos(self):
         global ia_bar_pos
