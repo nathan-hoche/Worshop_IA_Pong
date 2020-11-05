@@ -98,6 +98,15 @@ class launch_ia():
 ```
 > Don't touch other file to programm the AI.
 
+# **Tips**
+
+Here is the size of the different elements:<br>
+* The Arena: 800 x 500
+* The ball: 20 x 20
+* The bar: 20 x 100<br><br>
+
+You can move the player's bar with key up and down.
+
 <br><br>
 
 
