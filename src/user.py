@@ -3,6 +3,8 @@ ia_bar_pos = 15
 ball_pos = [0, 0]
 ball_speed = [0, 0]
 
+already_move = 0
+
 class user():
     def __init__(self):
         return
@@ -21,13 +23,17 @@ class user():
 
     def up_ia_bar(self):
         global ia_bar_pos
+        global already_move
         if (ia_bar_pos >= 30):
             ia_bar_pos -= 30
+            already_move = 1
 
     def down_ia_bar(self):
         global ia_bar_pos
+        global already_move
         if (ia_bar_pos <= heightScreen - 130):
             ia_bar_pos += 30
+            already_move = 1
 
 class program_init_user():
     def __init__(self):
@@ -35,6 +41,8 @@ class program_init_user():
 
     def get_ia_bar_pos(self):
         global ia_bar_pos
+        global already_move
+        already_move = 0
         return ia_bar_pos
 
     def set_ball_pos(self, pos):

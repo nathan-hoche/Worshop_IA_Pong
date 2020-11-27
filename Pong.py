@@ -83,10 +83,11 @@ class ia_ball():
         if (PosX <= self.PosY and self.PosY <= PosX + 100 
         and PosY <= self.PosX and self.PosX <= PosY + 24):
             if (random.randrange(0, 1) == 0):
-                self.speed[0] *= -1.2
+                self.speed[0] = 8 + random.randint(0, 4)
+                self.speed[1] = -8 - random.randint(0, 4)
             else:
-                self.speed[0] *= -1.2
-                self.speed[1] *= -1.2
+                self.speed[0] = 8 + random.randint(0, 4)
+                self.speed[1] = 8 + random.randint(0, 4)
 
     def get_pos_ball(self):
         return [self.PosX, self.PosY]
